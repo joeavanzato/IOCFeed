@@ -7,10 +7,12 @@ import feed_connectors.greensnow
 import feed_connectors.the_haleys_ssh
 import feed_connectors.netlab_dgas
 import feed_connectors.dshield
+import feed_connectors.tweet_ioc
+import feed_connectors.de_blocklist
+import feed_connectors.tor_project
+import feed_connectors.rutgers
 
 url_list = {}
-url_list['blocklist_de'] = 'http://lists.blocklist.de/lists/all.txt'
-url_list['malcode'] = 'http://malc0de.com/bl/IP_Blacklist.txt'
 url_list['rutgers'] = 'http://report.rutgers.edu/DROP/attackers'
 url_list['emergingthreats_ciarmy'] = 'http://rules.emergingthreats.net/blockrules/emerging-ciarmy.rules'
 url_list['emergingthreats_compromised'] = 'http://rules.emergingthreats.net/blockrules/emerging-compromised.rules'
@@ -26,14 +28,13 @@ url_list['myip_blacklist'] = 'https://myip.ms/files/blacklist/htaccess/latest_bl
 url_list['firehol_proxies'] = 'https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/proxyspy_1d.ipset'
 url_list['scriptzteam_badips'] = 'https://raw.githubusercontent.com/scriptzteam/badIPS/main/ips.txt'
 url_list['talos_intel'] = 'https://www.talosintelligence.com/documents/ip-blacklist'
-url_list['torproject'] = 'https://check.torproject.org/cgi-bin/TorBulkExitList.py?ip=1.1.1.1'
 url_list['urlhaus_urls'] = 'https://urlhaus.abuse.ch/downloads/text/'
 url_list['loki_signatures'] = 'https://raw.githubusercontent.com/Neo23x0/signature-base/master/iocs/c2-iocs.txt'
 
 def main():
-    with open('main_ip_feed.txt', 'w') as ip_feed:
-        with open('main_domain_feed.txt','w') as domain_feed:
-            with open('main_url_feed.txt','w') as url_feed:
+    with open('main_ip_feed.txt', 'w', encoding='utf8') as ip_feed:
+        with open('main_domain_feed.txt','w', encoding='utf8') as domain_feed:
+            with open('main_url_feed.txt','w', encoding='utf8') as url_feed:
                 feed_connectors.binary_defense.start(ip_feed, domain_feed, url_feed)
                 feed_connectors.botvrij.start(ip_feed, domain_feed, url_feed)
                 feed_connectors.cinsscore_ci_badguys.start(ip_feed, domain_feed, url_feed)
@@ -41,6 +42,10 @@ def main():
                 feed_connectors.the_haleys_ssh.start(ip_feed, domain_feed, url_feed)
                 feed_connectors.netlab_dgas.start(ip_feed, domain_feed, url_feed)
                 feed_connectors.dshield.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.tweet_ioc.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.de_blocklist.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.tor_project.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.rutgers.start(ip_feed, domain_feed, url_feed)
 
 
 main()
