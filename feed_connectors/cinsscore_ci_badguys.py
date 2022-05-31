@@ -1,0 +1,1 @@
+ip_list = 'http://cinsscore.com/list/ci-badguys.txt'
