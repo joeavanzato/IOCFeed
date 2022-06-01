@@ -16,7 +16,7 @@ list = {'ip':'https://dataplane.org/dnsrd.txt',
 description = "dataplane-feeds"
 
 def start(ip_feed, domain_feed, url_feed):
-    print("Updating Dataplane DNS Lists...")
+    print("Updating Dataplane DNS/SSH/SMTP/TELNET/VNC/SIP Lists...")
     for k,v in list.items():
         print(f"Checking: {v}")
         data = helpers.retrieve_txt.get_remote_text(v)
