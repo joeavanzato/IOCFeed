@@ -1,4 +1,7 @@
-import os, requests
+import os
+import sqlite3
+
+import requests
 
 import feed_connectors.binary_defense
 import feed_connectors.botvrij
@@ -11,24 +14,18 @@ import feed_connectors.tweet_ioc
 import feed_connectors.de_blocklist
 import feed_connectors.tor_project
 import feed_connectors.rutgers
+import feed_connectors.emerging_threats
+import feed_connectors.secops_institute
+import feed_connectors.myip_blacklist
+import feed_connectors.firehol
+import feed_connectors.scriptzteam
+import feed_connectors.talos
+import feed_connectors.urlhaus
+
 
 url_list = {}
-url_list['rutgers'] = 'http://report.rutgers.edu/DROP/attackers'
-url_list['emergingthreats_ciarmy'] = 'http://rules.emergingthreats.net/blockrules/emerging-ciarmy.rules'
-url_list['emergingthreats_compromised'] = 'http://rules.emergingthreats.net/blockrules/emerging-compromised.rules'
-url_list['emergingthreats_fwrules'] = 'http://rules.emergingthreats.net/fwrules/emerging-PF-CC.rules'
-url_list['emergingthreats_bots'] = 'http://rules.emergingthreats.net/open/suricata/rules/botcc.rules'
-url_list['emergingthreats_compromised2'] = 'http://rules.emergingthreats.net/open/suricata/rules/compromised-ips.txt'
-url_list['sblam_blacklist'] = 'https://sblam.com/blacklist.txt'
-url_list['tor_exits'] = 'https://raw.githubusercontent.com/SecOps-Institute/Tor-IP-Addresses/master/tor-exit-nodes.lst'
-url_list['tor_nodes'] = 'https://raw.githubusercontent.com/SecOps-Institute/Tor-IP-Addresses/master/tor-nodes.lst'
-url_list['binary_defense'] = 'https://www.binarydefense.com/banlist.txt'
+
 url_list['maxmind_highrisk'] = 'https://www.maxmind.com/en/high-risk-ip-sample-list'
-url_list['myip_blacklist'] = 'https://myip.ms/files/blacklist/htaccess/latest_blacklist.txt'
-url_list['firehol_proxies'] = 'https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/proxyspy_1d.ipset'
-url_list['scriptzteam_badips'] = 'https://raw.githubusercontent.com/scriptzteam/badIPS/main/ips.txt'
-url_list['talos_intel'] = 'https://www.talosintelligence.com/documents/ip-blacklist'
-url_list['urlhaus_urls'] = 'https://urlhaus.abuse.ch/downloads/text/'
 url_list['loki_signatures'] = 'https://raw.githubusercontent.com/Neo23x0/signature-base/master/iocs/c2-iocs.txt'
 
 def main():
@@ -46,6 +43,12 @@ def main():
                 feed_connectors.de_blocklist.start(ip_feed, domain_feed, url_feed)
                 feed_connectors.tor_project.start(ip_feed, domain_feed, url_feed)
                 feed_connectors.rutgers.start(ip_feed, domain_feed, url_feed)
-
+                feed_connectors.emerging_threats.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.secops_institute.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.myip_blacklist.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.firehol.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.scriptzteam.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.talos.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.urlhaus.start(ip_feed, domain_feed, url_feed)
 
 main()
