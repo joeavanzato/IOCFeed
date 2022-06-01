@@ -14,5 +14,5 @@ def start(ip_feed, domain_feed, url_feed):
         for line in data.text.splitlines():
             if not line.startswith("#") and not line.strip() == "":
                 splits = line.split(" ")
-                new_line_ip = splits[2].strip()+";"+description.strip()+"\n"
+                new_line_ip = splits[2].strip()+">>>"+description.strip()+"\n"
                 ip_feed.write(new_line_ip)

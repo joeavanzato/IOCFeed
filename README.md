@@ -3,14 +3,14 @@
 Designed to help aggregate IP, URL and Domain Indicators of Compromise into a central location for easier integration
 and analysis into open-source tooling by security analysts.  
 
-Feeds are queries and aggregated into lists separated by source and line-separated by ';' like 'IOC;Description'.  Example below:
+Feeds are queries and aggregated into lists separated by source and line-separated by '>>>' like 'IOC>>>Description'.  Example below:
 
 ```
 #Source Description
-IOC;Description
-IOC;Description
+IOC>>>Description
+IOC>>>Description
 #Source New Description
-IOC;Description
+IOC>>>Description
 ```
 
 

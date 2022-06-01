@@ -12,5 +12,5 @@ def start(ip_feed, domain_feed, url_feed):
         for line in data.text.splitlines():
             if not line.startswith("#") and not line.startswith(' ') and not line == '':
                 _, ioc = line.split(':')
-                new_line = ioc.strip()+";"+description.strip()+"\n"
+                new_line = ioc.strip()+">>>"+description.strip()+"\n"
                 ip_feed.write(new_line)

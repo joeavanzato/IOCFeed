@@ -12,5 +12,5 @@ def start(ip_feed, domain_feed, url_feed):
         ip_feed.write(f"#Source: {v}\n")
         for line in data.text.splitlines():
             if not line.startswith("#") and not line.startswith(' ') and not line == '': #Comments in banlist.txt
-                new_line = line.strip()+";"+description.strip()+"\n"
+                new_line = line.strip()+">>>"+description.strip()+"\n"
                 ip_feed.write(new_line)

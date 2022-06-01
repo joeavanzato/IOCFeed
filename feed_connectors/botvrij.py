@@ -21,9 +21,9 @@ def start(ip_feed, domain_feed, url_feed):
             if not line.startswith("#") and not line.startswith(' ') and not line == '': #Comments in banlist.txt
                 try:
                     ioc, description_2 = line.split('#', 1)
-                    new_line = ioc.strip() + ";" + description_2.strip() + "\n"
+                    new_line = ioc.strip() + ">>>" + description_2.strip() + "\n"
                 except:
-                    new_line = line.strip() + ";" + description.strip() + "\n"
+                    new_line = line.strip() + ">>>" + description.strip() + "\n"
                 if k == 'ip':
                     ip_feed.write(new_line)
                 elif k == 'domain':

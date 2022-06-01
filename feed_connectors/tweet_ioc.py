@@ -13,15 +13,15 @@ def start(ip_feed, domain_feed, url_feed):
         if k == "ip":
             ip_feed.write(f"#Source: {v}\n")
             for line in data.text.splitlines():
-                new_line = line+";"+description+"\n"
+                new_line = line+">>>"+description+"\n"
                 ip_feed.write(new_line)
         elif k == "domain":
             domain_feed.write(f"#Source: {v}\n")
             for line in data.text.splitlines():
-                new_line = line+";"+description+"\n"
+                new_line = line+">>>"+description+"\n"
                 domain_feed.write(new_line)
         elif k == "url":
             url_feed.write(f"#Source: {v}\n")
             for line in data.text.splitlines():
-                new_line = line+";"+description+"\n"
+                new_line = line+">>>"+description+"\n"
                 url_feed.write(new_line)

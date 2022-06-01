@@ -16,5 +16,5 @@ def start(ip_feed, domain_feed, url_feed):
                     splits = line.split('\t')
                 except:
                     pass
-                new_line = splits[1].strip()+";DGA-Family-"+splits[0]+"\n"
+                new_line = splits[1].strip()+">>>DGA-Family-"+splits[0]+"\n"
                 domain_feed.write(new_line)

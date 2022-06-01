@@ -13,8 +13,8 @@ def start(ip_feed, domain_feed, url_feed):
         for line in data.text.splitlines():
             if not line.startswith("#") and not line.startswith(' ') and not line == '':
                 ip, domain = line.split('\t')
-                new_line_ip = ip.strip()+";"+domain+","+description.strip()+"\n"
-                new_line_domain = domain.strip()+";"+ip+","+description.strip()+"\n"
+                new_line_ip = ip.strip()+">>>"+domain+","+description.strip()+"\n"
+                new_line_domain = domain.strip()+">>>"+ip+","+description.strip()+"\n"
                 ip_feed.write(new_line_ip)
                 if domain != "":
                     domain_feed.write(new_line_domain)
