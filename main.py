@@ -28,24 +28,23 @@ import feed_connectors.darklist
 import feed_connectors.vxvault_recent
 import feed_connectors.viriback
 import feed_connectors.dataplane
+import feed_connectors.alienvault
+import feed_connectors.phish_tank
+import feed_connectors.open_phish
+import feed_connectors.krisk_intel
+import feed_connectors.sekuripy
+import feed_connectors.abuse_ch
+import feed_connectors.turris_cz
+import feed_connectors.cruzit_blocklist
+import feed_connectors.danger_rulez
 
 # TODO
 # https://www.maxmind.com/en/high-risk-ip-sample-list
 # https://raw.githubusercontent.com/Neo23x0/signature-base/master/iocs/c2-iocs.txt
-# https://reputation.alienvault.com/reputation.generic
 # https://raw.githubusercontent.com/stamparm/blackbook/master/blackbook.csv
 # https://danger.rulez.sk/projects/bruteforceblocker/blist.php
-# https://www.cruzit.com/xxwbl2txt.php
-# https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt
-# http://sekuripy.hr/blacklist.txt
-# https://kriskintel.com/feeds/ktip_malicious_domains.txt
-# https://kriskintel.com/feeds/ktip_malicious_Ips.txt
-# https://openphish.com/feed.txt
-# http://data.phishtank.com/data/online-valid.csv
-# https://sslbl.abuse.ch/blacklist/sslblacklist.csv
-# https://raw.githubusercontent.com/stamparm/aux/master/maltrail-static-trails.txt
-# https://view.sentinel.turris.cz/greylist-data/greylist-latest.csv
-# http://www.urlvir.com/export-ip-addresses/
+# https://raw.githubusercontent.com/stamparm/aux/master/maltrail-static-trails.txt - very large
+# http://www.urlvir.com/export-ip-addresses/ - Not seeing data
 
 def get_data():
     with open('main_ip_feed.txt', 'w', encoding='utf8') as ip_feed:
@@ -75,6 +74,16 @@ def get_data():
                 #feed_connectors.vxvault_recent.start(ip_feed, domain_feed, url_feed)
                 #feed_connectors.viriback.start(ip_feed, domain_feed, url_feed)
                 #feed_connectors.dataplane.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.alienvault.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.phish_tank.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.open_phish.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.krisk_intel.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.sekuripy.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.abuse_ch.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.turris_cz.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.cruzit_blocklist.start(ip_feed, domain_feed, url_feed)
+                feed_connectors.danger_rulez.start(ip_feed, domain_feed, url_feed)
+
 
 
 
