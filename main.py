@@ -27,6 +27,7 @@ import feed_connectors.hoshadiq_mining
 import feed_connectors.darklist
 import feed_connectors.vxvault_recent
 import feed_connectors.viriback
+import feed_connectors.dataplane
 
 # TODO
 # https://www.maxmind.com/en/high-risk-ip-sample-list
@@ -35,18 +36,6 @@ import feed_connectors.viriback
 # https://raw.githubusercontent.com/stamparm/blackbook/master/blackbook.csv
 # https://danger.rulez.sk/projects/bruteforceblocker/blist.php
 # https://www.cruzit.com/xxwbl2txt.php
-# https://dataplane.org/dnsrd.txt
-# https://dataplane.org/dnsrdany.txt
-# https://dataplane.org/dnsversion.txt
-# https://dataplane.org/sipinvitation.txt
-# https://dataplane.org/sipquery.txt
-# https://dataplane.org/sipregistration.txt
-# https://dataplane.org/smtpdata.txt
-# https://dataplane.org/smtpgreet.txt
-# https://dataplane.org/sshclient.txt
-# https://dataplane.org/sshpwauth.txt
-# https://dataplane.org/telnetlogin.txt
-# https://dataplane.org/vncrfb.txt
 # https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt
 # http://sekuripy.hr/blacklist.txt
 # https://kriskintel.com/feeds/ktip_malicious_domains.txt
@@ -56,7 +45,6 @@ import feed_connectors.viriback
 # https://sslbl.abuse.ch/blacklist/sslblacklist.csv
 # https://raw.githubusercontent.com/stamparm/aux/master/maltrail-static-trails.txt
 # https://view.sentinel.turris.cz/greylist-data/greylist-latest.csv
-# http://tracker.viriback.com/dump.php
 # http://www.urlvir.com/export-ip-addresses/
 
 def get_data():
@@ -84,8 +72,9 @@ def get_data():
                 #feed_connectors.dan_me_tor.start(ip_feed, domain_feed, url_feed)
                 #feed_connectors.hoshadiq_mining.start(ip_feed, domain_feed, url_feed)
                 #feed_connectors.darklist.start(ip_feed, domain_feed, url_feed)
-                feed_connectors.vxvault_recent.start(ip_feed, domain_feed, url_feed)
-                feed_connectors.viriback.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.vxvault_recent.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.viriback.start(ip_feed, domain_feed, url_feed)
+                #feed_connectors.dataplane.start(ip_feed, domain_feed, url_feed)
 
 
 

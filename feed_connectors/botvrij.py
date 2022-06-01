@@ -1,6 +1,6 @@
 import helpers.retrieve_txt
 list = {'ip':'https://www.botvrij.eu/data/ioclist.ip-src',
-        'ip':'https://www.botvrij.eu/data/ioclist.ip-dst',
+        'ip2':'https://www.botvrij.eu/data/ioclist.ip-dst',
         'domain':'https://www.botvrij.eu/data/ioclist.domain',
         'url':'https://www.botvrij.eu/data/ioclist.url'}
 
@@ -24,7 +24,7 @@ def start(ip_feed, domain_feed, url_feed):
                     new_line = ioc.strip() + ">>>" + description_2.strip() + "\n"
                 except:
                     new_line = line.strip() + ">>>" + description.strip() + "\n"
-                if k == 'ip':
+                if k.contains("ip"):
                     ip_feed.write(new_line)
                 elif k == 'domain':
                     domain_feed.write(new_line)
