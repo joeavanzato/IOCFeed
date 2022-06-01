@@ -24,7 +24,7 @@ def start(ip_feed, domain_feed, url_feed):
                     new_line = ioc.strip() + ">>>" + description_2.strip() + "\n"
                 except:
                     new_line = line.strip() + ">>>" + description.strip() + "\n"
-                if k.contains("ip"):
+                if k.startswith("ip"):
                     ip_feed.write(new_line)
                 elif k == 'domain':
                     domain_feed.write(new_line)

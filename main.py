@@ -90,7 +90,7 @@ def dedup_data():
 
 
 def main():
-    get_data()
+    #get_data()
     dedup_data()
 
 
